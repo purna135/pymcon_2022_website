@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pymcon.com/sitemap.xml

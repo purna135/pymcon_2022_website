@@ -1,0 +1,741 @@
+/* ============================ HEADER ======================== */
+.header {
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+}
+
+.header__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+    height: 100%;
+}
+
+.header__left p {
+    margin: 1rem 0 2.4rem;
+}
+
+
+.header__left h5 {
+    margin: 1rem 0 2.4rem;
+    font-size: 1rem;
+    color: var(--color-light);
+}
+
+
+/* ============================ ROCKET =============================== */
+.header_right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_right star {
+    position: absolute;
+    top: -150px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: animateStar linear infinite;
+}
+
+@keyframes animateStar {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.header_right .rocket {
+    margin-top: -5rem;
+    position: relative;
+    animation: animate 0.2s ease infinite;
+}
+
+@keyframes animate {
+
+    0%,
+    100% {
+        transform: translateY(-2px);
+    }
+
+    50% {
+        transform: translatey(2px);
+    }
+}
+
+.header_right .rocket::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 74%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 200px;
+    background: linear-gradient(#00d0ff, transparent);
+}
+
+.header_right .rocket::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 74%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 200px;
+    background: linear-gradient(#00d0ff, transparent);
+    filter: blur(20px);
+}
+
+
+/* =========================== PULSE ANIMATION ====================== */
+.pulse {
+    z-index: -1;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--color-bg1);
+    border-radius: 50%;
+}
+
+.pulse span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--color-bg1);
+    border-radius: 50%;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    animation: animatePulse 2.5s linear infinite;
+    animation-delay: calc(-0.5s * var(--delay));
+}
+
+@keyframes animatePulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    90% {
+        transform: scale(3);
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+
+/* ============================= GOALS ========================== */
+.golas {
+    background: transparent;
+    height: 42rem;
+}
+
+.golas h2 {
+    text-align: left;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.golas__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.golas__left {
+    margin-right: 4rem;
+}
+
+.golas__left p {
+    margin: 1rem 0 2rem;
+    font-size: 0.9rem;
+}
+
+.golas__right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.goal {
+    background: var(--color-bg2);
+    padding: 2rem;
+    border-radius: 2rem;
+    transition: var(--transition);
+    color: var(--color-white);
+
+}
+
+.goal:hover {
+    box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.goal:nth-child(1) .goal__icon {
+    background: var(--color-red);
+}
+
+.goal:nth-child(2) .goal__icon {
+    background: #688bf8;
+}
+
+.goal:nth-child(3) .goal__icon {
+    background: var(--color-success);
+}
+
+.goal:nth-child(4) .goal__icon {
+    background: var(--color-warning);
+}
+
+.goal__icon {
+    background: var(--color-primary);
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    border-radius: 0.9rem;
+}
+
+.goal h3 {
+    font-size: 0.97rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.goal p {
+    font-size: 0.85rem;
+}
+
+
+/* ======================== PYMCON FEATURED EVENTS ========================= */
+.events{
+    background: var(--color-bg1);
+}
+
+.event__card {
+    background: var(--color-bg2);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.event__card:hover {
+    background: transparent;
+    border-color: var(--color-primary);
+}
+
+.event__header h4 {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--color-warning);
+}
+
+.event__header h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0.5rem;
+    line-height: 1.7rem;
+    max-height: 3.4rem;   /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+}
+
+.event__header span {
+    font-size: 0.9rem;
+}
+
+.event__header img {
+    border-radius: 5px;
+}
+
+.event__details p {
+    margin: 0.5rem 0 1rem;
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    max-height: 5.2rem; /* height is 3x line-height, so 3 lines will display */
+    overflow: hidden;
+}
+
+.speaker__info {
+    display: inline;
+}
+
+.speaker__info img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-red);
+    display: inline;
+}
+
+.speaker__info em {
+    font-size: 0.8rem;
+}
+
+.event__btn {
+    float: right;
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+}
+
+.swiper-pagination {
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+
+
+
+
+/* ========================== STYLE FOR A SINGLE FEATURED EVENT ======================= */
+.event_1 {
+    padding: 0 4rem;
+}
+
+.event_1 .event__card {
+    box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+}
+
+.event_1 .event__card:hover {
+    box-shadow: 2rem 2rem 2rem rgba(0, 0, 0, 0.3);
+    background: var(--color-bg2);
+}
+
+.event_1 .event__header .event__wrapper {
+    grid-row: 1;
+}
+
+.event_1 .event__header {
+    display: grid;
+    grid-template-columns: 3fr 1.4fr;
+    gap: 1rem;
+}
+
+.event_1 .event__header h3{
+    font-size: 1.5rem;
+    margin: 0.9rem 0 0.7rem;
+    line-height: 2.1rem;
+    max-height: 4.2rem;   /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+}
+
+.event_1 .event__header h4{
+    font-size: 1rem;
+}
+
+.event_1 .event__header span {
+    font-size: 1rem;
+}
+
+.event_1 .event__details p {
+    margin: 1.2rem 0 1rem 0;
+    line-height: 1.5rem;
+    max-height: 4.5rem; /* height is 3x line-height, so 3 lines will display */
+    overflow: hidden;
+    font-size: 0.95rem;
+}
+
+.event_1 .speaker__info img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 3px solid var(--color-red);
+    display: inline;
+}
+
+.event_1 .speaker__info em {
+    font-size: 0.95rem;
+}
+
+.event_1 .event__btn {
+    float: right;
+    padding: 0.6rem 1.1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+
+/* ========================== STYLE FOR 2 FEATURED EVENTS ======================= */
+.event_2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.event_2 .event__card {
+    padding: 1.3rem;
+}
+
+.event_2 .event__card:hover {
+    box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.3);
+    background: var(--color-bg2);
+}
+
+.event_2 .event__header {
+    display: grid;
+    grid-template-columns: 3fr 1.8fr;
+    gap: 0.5rem;
+}
+
+.event_2 .event__header .event__wrapper {
+    grid-row: 1;
+}
+
+.event_2 .event__header h4 {
+    margin-top: 0;
+}
+
+.event_2 .event__header h3{
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.3rem;
+    line-height: 1.5rem;
+    max-height: 4.5rem;   /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+}
+
+.event_2 .event__details p {
+    margin: 0.8rem 0 1rem 0;
+    line-height: 1.3rem;
+    max-height: 3.9rem; /* height is 3x line-height, so 3 lines will display */
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+
+
+/* ======================== SUBSCRIBE ====================== */
+.subscribe {
+    padding: 6rem 0 6rem;
+    background: var(--color-bg1);
+}
+
+.subscribe__container {
+    background: var(--color-bg2);
+    color: var(--color-white);
+    display: grid;
+    grid-template-columns: 3.5fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 4rem;
+    border-radius: 2rem;
+    z-index: 1;
+    border: 2px solid;
+    border-color: var(--color-light);
+    box-shadow: 0.7rem 0.7rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.subscribe__container:hover {
+    box-shadow: 2rem 2rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.subscribe__text p {
+    margin-top: 1rem;
+}
+
+.subscribe__text h2 {
+    font-size: 1.7rem;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.subscribe__btn {
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+
+
+
+/* ======================== SUPPORT/DONATIONS ====================== */
+.supports {
+    background: transparent;
+}
+
+.supports__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.support {
+    background: var(--color-bg2);
+    padding: 2rem 1.5rem;
+    border-radius: 2rem;
+    transition: var(--transition);
+    color: var(--color-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.supports>h2{
+    margin-bottom: 0;
+}
+
+.supports>p{
+    text-align: center;
+    margin: 1rem 0 4rem;
+    padding: 0 5rem;
+}
+
+.support:hover {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-white);
+    z-index: 1;
+}
+
+.support__icon {
+    font-size: 1.8rem;
+    padding: 0.4rem 1.2rem;
+    background-color: var(--color-primary);
+    border-radius: 1rem;
+    align-self: center;
+}
+
+.support:nth-child(1) .support__icon {
+    background: var(--color-red);
+}
+
+.support:nth-child(2) .support__icon {
+    background: #688bf8;
+}
+
+.support:nth-child(3) .support__icon {
+    background: var(--color-success);
+}
+
+.support:nth-child(4) .support__icon {
+    background: var(--color-warning);
+}
+
+.support h3 {
+    margin: 1.5rem 0 1rem;
+    font-size: 1.1rem;
+}
+
+.support .support__info {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.support p {
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+}
+
+.donate__btn {
+    display: inline-block;
+    background: var(--color-white);
+    color: var(--color-black);
+    margin-top: auto;
+    padding: .5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.donate__btn:hover {
+    background: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.donate__btn:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 3px;
+}
+
+
+
+/* =================== MEDIA QUERIES (TABLETS) ========================= */
+
+@media screen and (max-width: 1024px) {
+
+    /* =========================== HEADER ========================== */
+    .header {
+        height: 65vh;
+    }
+
+    .header__container {
+        gap: 0;
+        padding-bottom: 2rem;
+    }
+
+    /* ========================== STYLE FOR A SINGLE FEATURED EVENT ======================= */
+    .event_1 {
+        padding: 0;
+    }
+    
+    .event_1 .event__card {
+        padding: 1rem;
+    }
+
+    /* ========================== STYLE FOR 2 FEATURED EVENT ======================= */
+
+    .event_2 .event__card {
+        padding: 1rem;
+    }
+
+    .event_2 .event__header {
+        grid-template-columns: 1fr;
+    }
+    
+    .event_2 .event__header .event__wrapper {
+        grid-row: 2;
+    }
+    
+
+    /* ============================ GOALS ============================== */
+
+    .golas {
+        height: auto;
+    }
+
+    .golas__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .golas__left {
+        margin-right: 0;
+    }
+
+
+    /* ============================ SUPPORT/DONATE ============================== */
+    .supports__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ========================== SUBSCRIBE =========================== */
+    .subscribe__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .subscribe__text h2 {
+        text-align: center;
+    }
+}
+
+
+
+/* =================== MEDIA QUERIES (PHONES) ========================= */
+@media screen and (max-width: 600px) {
+
+    /* ======================= HEADER ======================== */
+    .header {
+        margin-top: 1rem;
+        height: 100vh;
+    }
+
+    .header__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .header__left p {
+        margin-bottom: 1.3rem;
+    }
+
+    .header_right star {
+        top: 0;
+    }
+
+    .header_right {
+        grid-row: 1;
+        z-index: -10;
+    }
+
+    .header_right .rocket {
+        margin-top: 0;
+    }
+
+    /* ========================== STYLE FOR A SINGLE FEATURED EVENT ======================= */
+    
+
+    .event_1 .event__header {
+        grid-template-columns: 1fr;
+    }
+    
+    .event_1 .event__header .event__wrapper {
+        grid-row: 2;
+    }
+
+    .event_1 .event__card h3,
+    .event_2 .event__card h3{
+        font-size: 1.4rem;
+        margin: 0.5rem 0 0.5rem;
+        line-height: 2rem;
+        max-height: fit-content;
+    }
+    
+    .event_1 .event__card h4{
+        margin-top: 0.8rem;
+    }
+    
+    .event_1 .event__card p {
+        margin: 0.8rem 0 1rem 0;
+    }
+
+    .event_2 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+
+    /* ======================= GOALS ======================== */
+    .golas__right {
+        gap: 0.5rem;
+    }
+
+    .goal {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .goal__icon {
+        margin-top: 2px;
+        padding: 8px 10px;
+        display: inline-block;
+    }
+
+    .goal h5 {
+        font-size: 0.85rem;
+        margin: 1rem 0 0.5rem;
+    }
+
+    .goal p {
+        font-size: 0.8rem;
+    }
+
+    /* ======================= SUBSCRIBE ======================== */
+    .subscribe__container {
+        padding: 2rem;
+    }
+
+    /* ============================ SUPPORT/DONATE ============================== */
+    .supports__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .supports>p{
+        padding: 0 1rem;
+    }
+}
